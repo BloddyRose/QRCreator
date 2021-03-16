@@ -16,6 +16,7 @@ namespace QRCreator
 {
     public partial class MainForm : MetroSet_UI.Forms.MetroSetForm
     {
+        // some globals vars
         private bool save_image_text = false;
         private bool save_image_wifi = false;
 
@@ -28,6 +29,7 @@ namespace QRCreator
 
         private void btnGenerateText_Click(object sender, EventArgs e)
         {
+            // Checking if input is not null
             if (!string.IsNullOrWhiteSpace(inputBoxText.Text))
             {
                 GenerateQRFromText(inputBoxText.Text);
@@ -42,10 +44,13 @@ namespace QRCreator
         {
             try
             {
+                // Creating the elements here 
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(text, QRCodeGenerator.ECCLevel.Q);
                 QRCode qrCode = new QRCode(qrCodeData);
                 Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+                // If user checks the check box saves the image with default name
                 if (save_image_text == true)
                 {
                     using (FolderBrowserDialog f = new FolderBrowserDialog())
@@ -57,12 +62,17 @@ namespace QRCreator
                     }
                 }
 
-
+                // show image
                 pictureBoxText.Image = qrCodeImage;
+
+                // free ram
                 qrGenerator.Dispose();
                 qrCodeData.Dispose();
                 qrCode.Dispose();
             }
+            //If ex is catched displat 
+            //TODO : Custom Mess 
+            // Not more showing the message but an fix for this error
             catch (Exception e)
             {
                 MetroSetMessageBox.Show(this, "An error : " + e.Message, "QR Creator");
@@ -72,6 +82,7 @@ namespace QRCreator
 
         private void boxSaveText_CheckedChanged(object sender)
         {
+            // Checking check box state
             if (boxSaveText.Checked == true)
             {
                 save_image_text = true;
@@ -86,6 +97,8 @@ namespace QRCreator
         #region WifiPage
         private void metroSetComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Getting the combo box selected value 
+
             int selectedIndex = WifiAuths.SelectedIndex;
             WifiAuths.SelectedItem.ToString();
             auth_name = WifiAuths.Items[selectedIndex].ToString();
@@ -102,6 +115,7 @@ namespace QRCreator
 
         private void boxSaveWifi_CheckedChanged(object sender)
         {
+            // Also getting check box status
             if (boxSaveWifi.Checked == true)
             {
                 save_image_wifi = true;
@@ -118,7 +132,8 @@ namespace QRCreator
             {
                 nameboxWifi.Focus();
             }
-            //else if (string.IsNullOrWhiteSpace(passwordWifi.Text))
+            // IF the password field is empty is has an error beacause of the nopass 
+            // else if (string.IsNullOrWhiteSpace(passwordWifi.Text))
             //{
             //    passwordWifi.Focus();
             //}
@@ -134,7 +149,8 @@ namespace QRCreator
             {
                 using (FolderBrowserDialog f = new FolderBrowserDialog())
                 {
-
+                    // if this is empty then this will not execute : 
+                    // TODO : Check the pass only on WPA or WEP
                     if (auth == "nopass")
                     {
                         WiFi generator = new WiFi(name, password, WiFi.Authentication.nopass);
@@ -155,6 +171,7 @@ namespace QRCreator
 
                         pictureBoxWifi.Image = qrCodeAsBitmap;
 
+                        //free ram
                         qrGenerator.Dispose();
                         qrCodeData.Dispose();
                         qrCode.Dispose();
@@ -220,6 +237,7 @@ namespace QRCreator
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //Adding items to the form 
             WifiAuths.Items.Add("nopass");
             WifiAuths.Items.Add("WPA");
             WifiAuths.Items.Add("WEP");
@@ -229,6 +247,8 @@ namespace QRCreator
 
         private void Clear()
         {
+            // Used to clean user info but no so great maybe implemented on a button 
+            // TODO > Implement on button and remove from (free ram) 
             nameboxWifi.Text = "";
             passwordWifi.Text = "";
         }
