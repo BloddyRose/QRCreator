@@ -1,4 +1,4 @@
-﻿## QR Creator
+﻿# QR Creator
 	Using the QRCodes library for .NET from https://github.com/codebude/QRCoder I a made a simple app that creates qr codes
 	Thanks QRCodes Contributors
 
