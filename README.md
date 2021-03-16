@@ -14,6 +14,10 @@ View the project here
 	- Adding Skype call QR
 	- Adding Whatsapp Message 
 	- And many more
+## Downloads 
+	- On releases page will be an zip file for now 
+
+[Download v1.0](https://github.com/BloddyRose/QRCreator/releases/download/1.0/QrCreator-Release-v1.0.rar)
 
 ## Looking for teammates 
 	Make a pull request to add your features
