@@ -1,6 +1,9 @@
 ﻿# QR Creator
-	Using the QRCodes library for .NET from [QRCodes](https://github.com/codebude/QRCoder) I a made a simple app that creates qr codes
+	Using the QRCodes library for .NET
+	I a made a simple app that creates qr codes
 	Thanks QRCodes Contributors
+View the project here
+[QRCodes](https://github.com/codebude/QRCoder)
 
 ## Features 
 	- Text to QR code,
