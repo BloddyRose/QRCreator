@@ -253,5 +253,42 @@ namespace QRCreator
             passwordWifi.Text = "";
         }
         #endregion
+
+        private void btnUrlGenerate_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(inputUrl.Text))
+            {
+                GenerateQRForUrl(inputUrl.Text);
+            }
+            else
+            {
+                MetroSetMessageBox.Show(this, "The field not should be empty!", "QR Creator");
+                inputUrl.Focus();
+            }
+        }
+
+        private void GenerateQRForUrl(string url)
+        {
+            try
+            {
+                Url generator = new Url(url);
+                string payload = generator.ToString();
+
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                var qrCodeAsBitmap = qrCode.GetGraphic(20);
+
+                pictureBoxUrl.Image = qrCodeAsBitmap;
+
+                qrCode.Dispose();
+                qrCodeData.Dispose();
+                qrGenerator.Dispose();
+            }
+            catch (Exception e)
+            {
+                MetroSetMessageBox.Show(this, "An error : " + e.Message, "QR Creator");
+            }
+        }
     }
 }
