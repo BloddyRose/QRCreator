@@ -7,7 +7,8 @@ View the project here
 
 ## Features 
 	- Text to QR code,
-	- Wifi to QR Code
+	- Wifi to QR Code,
+	- Url to QR code
 
 ## On Future 
 
