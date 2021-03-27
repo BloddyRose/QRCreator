@@ -30,8 +30,8 @@
 
 Here are some screns of the app 
 
-![Screen1.Png](../../../Pictures/Screen1.png.PNG)
+![Screen1.Png](Pictures/Screen1.png.PNG)
 
-![Screen2](../../../Pictures/Screen2.PNG)
+![Screen2](Pictures/Screen2.PNG)
 
-![Screen3](../../../Pictures/Screen3.PNG)
+![Screen3](Pictures/Screen3.PNG)
