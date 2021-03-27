@@ -6,7 +6,7 @@
 > Thanks QRCoder Contributors
 
 >View the project here
-[QRCodes](https://github.com/codebude/QRCoder)
+[QRCoder](https://github.com/codebude/QRCoder)
 
 ## Features 
 - 	 Text to QR code,
