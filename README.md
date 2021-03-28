@@ -8,10 +8,14 @@
 >View the project here
 [QRCoder](https://github.com/codebude/QRCoder)
 
+## Updates 
+- Now you can bookmark your pages
+
 ## Features 
 - 	 Text to QR code,
 - 	 Wifi to QR Code,
 - 	 Url to QR code
+-    BookMark to QR code
 
 ## On Future 
 
@@ -35,3 +39,5 @@ Here are some screns of the app
 ![Screen2](Pictures/Screen2.PNG)
 
 ![Screen3](Pictures/Screen3.PNG)
+
+![Screen4](Pictures/Screen4.PNG)
