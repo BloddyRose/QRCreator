@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MetroSet_UI.Forms;
+﻿using MetroSet_UI.Forms;
 using QRCoder;
+using System;
+using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 using static QRCoder.PayloadGenerator;
 
 namespace QRCreator
@@ -19,6 +13,8 @@ namespace QRCreator
         // some globals vars
         private bool save_image_text = false;
         private bool save_image_wifi = false;
+        private bool save_image_url = false;
+        private bool save_image_book = false;
 
         private string auth_name = string.Empty;
         public MainForm()
@@ -77,7 +73,7 @@ namespace QRCreator
             {
                 MetroSetMessageBox.Show(this, "An error : " + e.Message, "QR Creator");
             }
-            
+
         }
 
         private void boxSaveText_CheckedChanged(object sender)
@@ -143,7 +139,7 @@ namespace QRCreator
             }
         }
 
-        private void GenerateQRForWifi(string name, string password,  string auth)
+        private void GenerateQRForWifi(string name, string password, string auth)
         {
             try
             {
@@ -159,7 +155,7 @@ namespace QRCreator
                         QRCodeGenerator qrGenerator = new QRCodeGenerator();
                         QRCodeData qrCodeData = qrGenerator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.Q);
                         QRCode qrCode = new QRCode(qrCodeData);
-                        var qrCodeAsBitmap = qrCode.GetGraphic(20);
+                        Bitmap qrCodeAsBitmap = qrCode.GetGraphic(20);
 
                         if (save_image_wifi == true)
                         {
@@ -185,7 +181,7 @@ namespace QRCreator
                         QRCodeGenerator qrGenerator = new QRCodeGenerator();
                         QRCodeData qrCodeData = qrGenerator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.Q);
                         QRCode qrCode = new QRCode(qrCodeData);
-                        var qrCodeAsBitmap = qrCode.GetGraphic(20);
+                        Bitmap qrCodeAsBitmap = qrCode.GetGraphic(20);
 
                         if (save_image_wifi == true)
                         {
@@ -209,7 +205,7 @@ namespace QRCreator
                         QRCodeGenerator qrGenerator = new QRCodeGenerator();
                         QRCodeData qrCodeData = qrGenerator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.Q);
                         QRCode qrCode = new QRCode(qrCodeData);
-                        var qrCodeAsBitmap = qrCode.GetGraphic(20);
+                        Bitmap qrCodeAsBitmap = qrCode.GetGraphic(20);
 
                         if (save_image_wifi == true)
                         {
@@ -254,16 +250,21 @@ namespace QRCreator
         }
         #endregion
 
+        #region UrlPage
         private void btnUrlGenerate_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(inputUrl.Text))
-            {
-                GenerateQRForUrl(inputUrl.Text);
-            }
-            else
+            if (string.IsNullOrWhiteSpace(inputUrl.Text))
             {
                 MetroSetMessageBox.Show(this, "The field not should be empty!", "QR Creator");
                 inputUrl.Focus();
+            }
+            else if (inputUrl.Text.Contains("http"))
+            {
+                MetroSetMessageBox.Show(this, "The field should contain a link that has http or https", "QR Creator");
+                inputUrl.Focus();
+            }
+            {
+                GenerateQRForUrl(inputUrl.Text);
             }
         }
 
@@ -277,7 +278,18 @@ namespace QRCreator
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.Q);
                 QRCode qrCode = new QRCode(qrCodeData);
-                var qrCodeAsBitmap = qrCode.GetGraphic(20);
+                Bitmap qrCodeAsBitmap = qrCode.GetGraphic(20);
+
+                if (save_image_url == true)
+                {
+                    using (FolderBrowserDialog f = new FolderBrowserDialog())
+                    {
+                        if (f.ShowDialog() == DialogResult.OK)
+                        {
+                            qrCodeAsBitmap.Save(Path.Combine(f.SelectedPath, "qr-code-url.png"));
+                        }
+                    }
+                }
 
                 pictureBoxUrl.Image = qrCodeAsBitmap;
 
@@ -290,5 +302,72 @@ namespace QRCreator
                 MetroSetMessageBox.Show(this, "An error : " + e.Message, "QR Creator");
             }
         }
+
+        private void metroSetCheckBox1_CheckedChanged(object sender)
+        {
+            if (metroSetCheckBox1.Checked == true)
+            {
+                save_image_url = true;
+            }
+            else
+            {
+                save_image_url = false;
+            }
+        }
+        #endregion
+
+        #region BookMarkPage
+        private void BookGenerate_Click(object sender, EventArgs e)
+        {
+            if (!(string.IsNullOrWhiteSpace(bookName.Text) || string.IsNullOrWhiteSpace(bookUrl.Text)))
+            {
+                GenerateQRForBookMark(bookName.Text, bookUrl.Text);
+            }
+            else
+            {
+                MetroSetMessageBox.Show(this, "The fields not should be empty!", "QR Creator");
+            }
+        }
+
+        private void GenerateQRForBookMark(string name, string url)
+        {
+            Bookmark generator = new Bookmark(url, name);
+            string payload = generator.ToString();
+
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeAsBitmap = qrCode.GetGraphic(20);
+
+            if (save_image_book == true)
+            {
+                using (FolderBrowserDialog f = new FolderBrowserDialog())
+                {
+                    if (f.ShowDialog() == DialogResult.OK)
+                    {
+                        qrCodeAsBitmap.Save(Path.Combine(f.SelectedPath, "qr-code-bookmark.png"));
+                    }
+                }
+            }
+
+            bookPicture.Image = qrCodeAsBitmap;
+
+            qrGenerator.Dispose();
+            qrCode.Dispose();
+            qrCodeData.Dispose();
+        }
+
+        private void metroSetCheckBox2_CheckedChanged(object sender)
+        {
+            if (metroSetCheckBox2.Checked == true)
+            {
+                save_image_book = true;
+            }
+            else
+            {
+                save_image_book = false;
+            }
+        }
+        #endregion
     }
 }
