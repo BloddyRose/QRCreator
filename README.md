@@ -25,7 +25,7 @@
 
 
 ## Downloads 
-- On [releases](https://github.com/BloddyRose/QRCreator/releases)  page will be an rar file [Realease.rar](https://github.com/BloddyRose/QRCreator/releases/download/v2/Release.rar)
+- On [releases](https://github.com/BloddyRose/QRCreator/releases)  page will be an rar file [Release.rar](https://github.com/BloddyRose/QRCreator/releases/download/v2/Release.rar)
 
 ## Looking for teammates 
 > 	Make a pull request to add your features
