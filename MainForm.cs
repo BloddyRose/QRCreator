@@ -258,11 +258,13 @@ namespace QRCreator
                 MetroSetMessageBox.Show(this, "The field not should be empty!", "QR Creator");
                 inputUrl.Focus();
             }
-            else if (inputUrl.Text.Contains("http"))
+            else if (!(inputUrl.Text.Contains("http") || inputUrl.Text.Contains("https")))
             {
                 MetroSetMessageBox.Show(this, "The field should contain a link that has http or https", "QR Creator");
                 inputUrl.Focus();
+                pictureBoxUrl.Image = null;
             }
+            else
             {
                 GenerateQRForUrl(inputUrl.Text);
             }
@@ -319,13 +321,19 @@ namespace QRCreator
         #region BookMarkPage
         private void BookGenerate_Click(object sender, EventArgs e)
         {
-            if (!(string.IsNullOrWhiteSpace(bookName.Text) || string.IsNullOrWhiteSpace(bookUrl.Text)))
+            if ((string.IsNullOrWhiteSpace(bookName.Text) || string.IsNullOrWhiteSpace(bookUrl.Text)))
             {
-                GenerateQRForBookMark(bookName.Text, bookUrl.Text);
+                MetroSetMessageBox.Show(this, "The fields not should be empty!", "QR Creator");
+            }
+            else if (!(bookUrl.Text.Contains("http") || bookUrl.Text.Contains("https")))
+            {
+                MetroSetMessageBox.Show(this, "The field should contain a link that has http or https", "QR Creator");
+                bookUrl.Focus();
+                bookPicture.Image = null;
             }
             else
             {
-                MetroSetMessageBox.Show(this, "The fields not should be empty!", "QR Creator");
+                GenerateQRForBookMark(bookName.Text, bookUrl.Text);
             }
         }
 
