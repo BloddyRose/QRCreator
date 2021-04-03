@@ -134,7 +134,6 @@
     <None Include="QRCreator_1_TemporaryKey.pfx" />
     <None Include="QRCreator_TemporaryKey.pfx" />
     <None Include="README.md" />
-    <Content Include="vers.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
