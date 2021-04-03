@@ -5,6 +5,8 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using static QRCoder.PayloadGenerator;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace QRCreator
 {
@@ -16,6 +18,15 @@ namespace QRCreator
         private bool save_image_url = false;
         private bool save_image_book = false;
 
+        // some versions vars
+        private string local_ver = string.Empty;
+        private string online_ver = string.Empty;
+        private string file = "version";
+        private string online_url = "https://pastebin.com/raw/tLB8hMvT"; // TODO : Configure pastebin...
+        
+
+
+        // combobox value 
         private string auth_name = string.Empty;
         public MainForm()
         {
@@ -239,6 +250,8 @@ namespace QRCreator
             WifiAuths.Items.Add("WEP");
 
             WifiAuths.SelectedIndex = 0;
+
+            CompareVersions();
         }
 
         private void Clear()
@@ -377,5 +390,94 @@ namespace QRCreator
             }
         }
         #endregion
+
+        private void ReadVersionFromOnline()
+        {
+            try
+            {
+                using (WebClient web = new WebClient())
+                {
+                   online_ver =  web.DownloadString(online_url);
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+
+        private void SetLocalVersion(string version)
+        {
+            string file_path = Path.Combine(Application.StartupPath, file);
+            try
+            {
+                if (File.Exists(file))
+                {
+                    using (StreamWriter sw = new StreamWriter(file))
+                    {
+                        sw.Write(version);
+                    }
+                }
+                else
+                {
+                    File.Create(file_path);
+                    using (StreamWriter sw = new StreamWriter(file))
+                    {
+                        sw.Write(version);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+
+        private string ReadLocalVersion()
+        {
+            try
+            {
+                if (File.Exists(file))
+                {
+                    using (StreamReader sr = new StreamReader(file))
+                    {
+                        return sr.ReadLine();
+                    }
+                }
+
+                File.Create(file);
+                return string.Empty;
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+        private void CompareVersions()
+        {
+            local_ver = ReadLocalVersion();
+            ReadVersionFromOnline();
+
+            if (local_ver == online_ver)
+            {
+                MetroSetMessageBox.Show(this, "Update", "No updates found, version is : " + local_ver);
+                SetLocalVersion(online_ver);
+            }
+            else if (local_ver != online_ver)
+            {
+                SetLocalVersion(online_ver);
+                // Message to use that is a new version
+
+                MetroSetMessageBox.Show(this, "Update", "A new update has been found : " + online_ver);
+            }
+            else
+            {
+
+            }
+        }
     }
 }
