@@ -490,5 +490,12 @@ namespace QRCreator
             Process.Start(download_url);
         }
         #endregion
+
+        private void btnDonate_Click(object sender, EventArgs e)
+        {
+            string url = "https://www.paypal.com/donate?hosted_button_id=PSNGWDTK6FHME";
+
+            System.Diagnostics.Process.Start(url);
+        }
     }
 }

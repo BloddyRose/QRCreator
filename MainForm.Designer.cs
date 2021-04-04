@@ -65,6 +65,7 @@ namespace QRCreator
             this.metroSetLabel6 = new MetroSet_UI.Controls.MetroSetLabel();
             this.labelLink = new MetroSet_UI.Controls.MetroSetLink();
             this.labelMess = new MetroSet_UI.Controls.MetroSetLabel();
+            this.btnDonate = new MetroSet_UI.Controls.MetroSetButton();
             this.PageControl.SuspendLayout();
             this.TextPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxText)).BeginInit();
@@ -815,6 +816,33 @@ namespace QRCreator
             this.labelMess.ThemeAuthor = "Narwin";
             this.labelMess.ThemeName = "MetroDark";
             // 
+            // btnDonate
+            // 
+            this.btnDonate.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.btnDonate.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.btnDonate.DisabledForeColor = System.Drawing.Color.Gray;
+            this.btnDonate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnDonate.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.btnDonate.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.btnDonate.HoverTextColor = System.Drawing.Color.White;
+            this.btnDonate.IsDerivedStyle = true;
+            this.btnDonate.Location = new System.Drawing.Point(115, 47);
+            this.btnDonate.Name = "btnDonate";
+            this.btnDonate.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.btnDonate.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.btnDonate.NormalTextColor = System.Drawing.Color.White;
+            this.btnDonate.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.btnDonate.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.btnDonate.PressTextColor = System.Drawing.Color.White;
+            this.btnDonate.Size = new System.Drawing.Size(79, 20);
+            this.btnDonate.Style = MetroSet_UI.Enums.Style.Dark;
+            this.btnDonate.StyleManager = this.styleManager;
+            this.btnDonate.TabIndex = 4;
+            this.btnDonate.Text = "Donate";
+            this.btnDonate.ThemeAuthor = "Narwin";
+            this.btnDonate.ThemeName = "MetroDark";
+            this.btnDonate.Click += new System.EventHandler(this.btnDonate_Click);
+            // 
             // MainForm
             // 
             this.AllowResize = false;
@@ -822,6 +850,7 @@ namespace QRCreator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(823, 502);
+            this.Controls.Add(this.btnDonate);
             this.Controls.Add(this.labelMess);
             this.Controls.Add(this.labelLink);
             this.Controls.Add(this.PageControl);
@@ -887,5 +916,6 @@ namespace QRCreator
         private System.Windows.Forms.PictureBox bookPicture;
         private MetroSet_UI.Controls.MetroSetLabel labelMess;
         private MetroSet_UI.Controls.MetroSetLink labelLink;
+        private MetroSet_UI.Controls.MetroSetButton btnDonate;
     }
 }
