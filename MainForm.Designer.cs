@@ -50,19 +50,21 @@ namespace QRCreator
             this.metroSetLabel3 = new MetroSet_UI.Controls.MetroSetLabel();
             this.metroSetLabel2 = new MetroSet_UI.Controls.MetroSetLabel();
             this.UrlPage = new MetroSet_UI.Child.MetroSetSetTabPage();
+            this.metroSetCheckBox1 = new MetroSet_UI.Controls.MetroSetCheckBox();
             this.pictureBoxUrl = new System.Windows.Forms.PictureBox();
             this.metroSetLabel5 = new MetroSet_UI.Controls.MetroSetLabel();
             this.inputUrl = new MetroSet_UI.Controls.MetroSetTextBox();
             this.btnUrlGenerate = new MetroSet_UI.Controls.MetroSetButton();
-            this.metroSetCheckBox1 = new MetroSet_UI.Controls.MetroSetCheckBox();
             this.BookmarkPage = new MetroSet_UI.Child.MetroSetSetTabPage();
-            this.metroSetLabel6 = new MetroSet_UI.Controls.MetroSetLabel();
-            this.bookName = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.bookPicture = new System.Windows.Forms.PictureBox();
+            this.metroSetCheckBox2 = new MetroSet_UI.Controls.MetroSetCheckBox();
+            this.BookGenerate = new MetroSet_UI.Controls.MetroSetButton();
             this.bookUrl = new MetroSet_UI.Controls.MetroSetTextBox();
             this.metroSetLabel7 = new MetroSet_UI.Controls.MetroSetLabel();
-            this.BookGenerate = new MetroSet_UI.Controls.MetroSetButton();
-            this.metroSetCheckBox2 = new MetroSet_UI.Controls.MetroSetCheckBox();
-            this.bookPicture = new System.Windows.Forms.PictureBox();
+            this.bookName = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.metroSetLabel6 = new MetroSet_UI.Controls.MetroSetLabel();
+            this.labelLink = new MetroSet_UI.Controls.MetroSetLink();
+            this.labelMess = new MetroSet_UI.Controls.MetroSetLabel();
             this.PageControl.SuspendLayout();
             this.TextPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxText)).BeginInit();
@@ -112,7 +114,7 @@ namespace QRCreator
             // 
             this.PageControl.AnimateEasingType = MetroSet_UI.Enums.EasingType.CubeOut;
             this.PageControl.AnimateTime = 200;
-            this.PageControl.BackgroundColor = System.Drawing.Color.White;
+            this.PageControl.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.PageControl.Controls.Add(this.TextPage);
             this.PageControl.Controls.Add(this.WIFIPage);
             this.PageControl.Controls.Add(this.UrlPage);
@@ -132,13 +134,13 @@ namespace QRCreator
             this.PageControl.TabIndex = 1;
             this.PageControl.TabStyle = MetroSet_UI.Enums.TabStyle.Style2;
             this.PageControl.ThemeAuthor = "Narwin";
-            this.PageControl.ThemeName = "MetroLite";
+            this.PageControl.ThemeName = "MetroDark";
             this.PageControl.UnselectedTextColor = System.Drawing.Color.Gray;
             this.PageControl.UseAnimation = false;
             // 
             // TextPage
             // 
-            this.TextPage.BaseColor = System.Drawing.Color.White;
+            this.TextPage.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.TextPage.Controls.Add(this.metroSetLabel1);
             this.TextPage.Controls.Add(this.boxSaveText);
             this.TextPage.Controls.Add(this.pictureBoxText);
@@ -265,7 +267,7 @@ namespace QRCreator
             // 
             // WIFIPage
             // 
-            this.WIFIPage.BaseColor = System.Drawing.Color.White;
+            this.WIFIPage.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.WIFIPage.Controls.Add(this.pictureBoxWifi);
             this.WIFIPage.Controls.Add(this.boxSaveWifi);
             this.WIFIPage.Controls.Add(this.btnGenerateWifi);
@@ -485,7 +487,7 @@ namespace QRCreator
             // 
             // UrlPage
             // 
-            this.UrlPage.BaseColor = System.Drawing.Color.White;
+            this.UrlPage.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.UrlPage.Controls.Add(this.metroSetCheckBox1);
             this.UrlPage.Controls.Add(this.pictureBoxUrl);
             this.UrlPage.Controls.Add(this.metroSetLabel5);
@@ -505,6 +507,30 @@ namespace QRCreator
             this.UrlPage.ThemeAuthor = "Narwin";
             this.UrlPage.ThemeName = "MetroDark";
             this.UrlPage.ToolTipText = null;
+            // 
+            // metroSetCheckBox1
+            // 
+            this.metroSetCheckBox1.BackColor = System.Drawing.Color.Transparent;
+            this.metroSetCheckBox1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.metroSetCheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.metroSetCheckBox1.Checked = false;
+            this.metroSetCheckBox1.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroSetCheckBox1.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            this.metroSetCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroSetCheckBox1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.metroSetCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroSetCheckBox1.IsDerivedStyle = true;
+            this.metroSetCheckBox1.Location = new System.Drawing.Point(570, 76);
+            this.metroSetCheckBox1.Name = "metroSetCheckBox1";
+            this.metroSetCheckBox1.SignStyle = MetroSet_UI.Enums.SignStyle.Shape;
+            this.metroSetCheckBox1.Size = new System.Drawing.Size(110, 16);
+            this.metroSetCheckBox1.Style = MetroSet_UI.Enums.Style.Dark;
+            this.metroSetCheckBox1.StyleManager = null;
+            this.metroSetCheckBox1.TabIndex = 8;
+            this.metroSetCheckBox1.Text = "Save image";
+            this.metroSetCheckBox1.ThemeAuthor = "Narwin";
+            this.metroSetCheckBox1.ThemeName = "MetroDark";
+            this.metroSetCheckBox1.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.metroSetCheckBox1_CheckedChanged);
             // 
             // pictureBoxUrl
             // 
@@ -586,33 +612,9 @@ namespace QRCreator
             this.btnUrlGenerate.ThemeName = "MetroLite";
             this.btnUrlGenerate.Click += new System.EventHandler(this.btnUrlGenerate_Click);
             // 
-            // metroSetCheckBox1
-            // 
-            this.metroSetCheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.metroSetCheckBox1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.metroSetCheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.metroSetCheckBox1.Checked = false;
-            this.metroSetCheckBox1.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.metroSetCheckBox1.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.metroSetCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroSetCheckBox1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.metroSetCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.metroSetCheckBox1.IsDerivedStyle = true;
-            this.metroSetCheckBox1.Location = new System.Drawing.Point(570, 76);
-            this.metroSetCheckBox1.Name = "metroSetCheckBox1";
-            this.metroSetCheckBox1.SignStyle = MetroSet_UI.Enums.SignStyle.Shape;
-            this.metroSetCheckBox1.Size = new System.Drawing.Size(110, 16);
-            this.metroSetCheckBox1.Style = MetroSet_UI.Enums.Style.Dark;
-            this.metroSetCheckBox1.StyleManager = null;
-            this.metroSetCheckBox1.TabIndex = 8;
-            this.metroSetCheckBox1.Text = "Save image";
-            this.metroSetCheckBox1.ThemeAuthor = "Narwin";
-            this.metroSetCheckBox1.ThemeName = "MetroDark";
-            this.metroSetCheckBox1.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.metroSetCheckBox1_CheckedChanged);
-            // 
             // BookmarkPage
             // 
-            this.BookmarkPage.BaseColor = System.Drawing.Color.White;
+            this.BookmarkPage.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.BookmarkPage.Controls.Add(this.bookPicture);
             this.BookmarkPage.Controls.Add(this.metroSetCheckBox2);
             this.BookmarkPage.Controls.Add(this.BookGenerate);
@@ -635,48 +637,66 @@ namespace QRCreator
             this.BookmarkPage.ThemeName = "MetroDark";
             this.BookmarkPage.ToolTipText = null;
             // 
-            // metroSetLabel6
+            // bookPicture
             // 
-            this.metroSetLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.metroSetLabel6.IsDerivedStyle = true;
-            this.metroSetLabel6.Location = new System.Drawing.Point(3, 12);
-            this.metroSetLabel6.Name = "metroSetLabel6";
-            this.metroSetLabel6.Size = new System.Drawing.Size(239, 23);
-            this.metroSetLabel6.Style = MetroSet_UI.Enums.Style.Dark;
-            this.metroSetLabel6.StyleManager = null;
-            this.metroSetLabel6.TabIndex = 0;
-            this.metroSetLabel6.Text = "Enter your bookmark name here";
-            this.metroSetLabel6.ThemeAuthor = "Narwin";
-            this.metroSetLabel6.ThemeName = "MetroDark";
+            this.bookPicture.BackColor = System.Drawing.Color.Transparent;
+            this.bookPicture.Location = new System.Drawing.Point(3, 140);
+            this.bookPicture.Name = "bookPicture";
+            this.bookPicture.Size = new System.Drawing.Size(312, 232);
+            this.bookPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bookPicture.TabIndex = 6;
+            this.bookPicture.TabStop = false;
             // 
-            // bookName
+            // metroSetCheckBox2
             // 
-            this.bookName.AutoCompleteCustomSource = null;
-            this.bookName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bookName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bookName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.bookName.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bookName.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.bookName.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            this.bookName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.bookName.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.bookName.Image = null;
-            this.bookName.IsDerivedStyle = true;
-            this.bookName.Lines = null;
-            this.bookName.Location = new System.Drawing.Point(3, 38);
-            this.bookName.MaxLength = 32767;
-            this.bookName.Multiline = false;
-            this.bookName.Name = "bookName";
-            this.bookName.ReadOnly = false;
-            this.bookName.Size = new System.Drawing.Size(766, 30);
-            this.bookName.Style = MetroSet_UI.Enums.Style.Light;
-            this.bookName.StyleManager = null;
-            this.bookName.TabIndex = 1;
-            this.bookName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bookName.ThemeAuthor = "Narwin";
-            this.bookName.ThemeName = "MetroLite";
-            this.bookName.UseSystemPasswordChar = false;
-            this.bookName.WatermarkText = "";
+            this.metroSetCheckBox2.BackColor = System.Drawing.Color.Transparent;
+            this.metroSetCheckBox2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.metroSetCheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.metroSetCheckBox2.Checked = false;
+            this.metroSetCheckBox2.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroSetCheckBox2.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            this.metroSetCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroSetCheckBox2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.metroSetCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroSetCheckBox2.IsDerivedStyle = true;
+            this.metroSetCheckBox2.Location = new System.Drawing.Point(576, 140);
+            this.metroSetCheckBox2.Name = "metroSetCheckBox2";
+            this.metroSetCheckBox2.SignStyle = MetroSet_UI.Enums.SignStyle.Sign;
+            this.metroSetCheckBox2.Size = new System.Drawing.Size(98, 16);
+            this.metroSetCheckBox2.Style = MetroSet_UI.Enums.Style.Dark;
+            this.metroSetCheckBox2.StyleManager = null;
+            this.metroSetCheckBox2.TabIndex = 5;
+            this.metroSetCheckBox2.Text = "Save image";
+            this.metroSetCheckBox2.ThemeAuthor = "Narwin";
+            this.metroSetCheckBox2.ThemeName = "MetroDark";
+            this.metroSetCheckBox2.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.metroSetCheckBox2_CheckedChanged);
+            // 
+            // BookGenerate
+            // 
+            this.BookGenerate.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.BookGenerate.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.BookGenerate.DisabledForeColor = System.Drawing.Color.Gray;
+            this.BookGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.BookGenerate.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.BookGenerate.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.BookGenerate.HoverTextColor = System.Drawing.Color.White;
+            this.BookGenerate.IsDerivedStyle = true;
+            this.BookGenerate.Location = new System.Drawing.Point(694, 133);
+            this.BookGenerate.Name = "BookGenerate";
+            this.BookGenerate.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.BookGenerate.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.BookGenerate.NormalTextColor = System.Drawing.Color.White;
+            this.BookGenerate.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.BookGenerate.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.BookGenerate.PressTextColor = System.Drawing.Color.White;
+            this.BookGenerate.Size = new System.Drawing.Size(75, 23);
+            this.BookGenerate.Style = MetroSet_UI.Enums.Style.Light;
+            this.BookGenerate.StyleManager = null;
+            this.BookGenerate.TabIndex = 4;
+            this.BookGenerate.Text = "Generate";
+            this.BookGenerate.ThemeAuthor = "Narwin";
+            this.BookGenerate.ThemeName = "MetroLite";
+            this.BookGenerate.Click += new System.EventHandler(this.BookGenerate_Click);
             // 
             // bookUrl
             // 
@@ -721,66 +741,79 @@ namespace QRCreator
             this.metroSetLabel7.ThemeAuthor = "Narwin";
             this.metroSetLabel7.ThemeName = "MetroDark";
             // 
-            // BookGenerate
+            // bookName
             // 
-            this.BookGenerate.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.BookGenerate.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.BookGenerate.DisabledForeColor = System.Drawing.Color.Gray;
-            this.BookGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BookGenerate.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.BookGenerate.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.BookGenerate.HoverTextColor = System.Drawing.Color.White;
-            this.BookGenerate.IsDerivedStyle = true;
-            this.BookGenerate.Location = new System.Drawing.Point(694, 133);
-            this.BookGenerate.Name = "BookGenerate";
-            this.BookGenerate.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.BookGenerate.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.BookGenerate.NormalTextColor = System.Drawing.Color.White;
-            this.BookGenerate.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.BookGenerate.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.BookGenerate.PressTextColor = System.Drawing.Color.White;
-            this.BookGenerate.Size = new System.Drawing.Size(75, 23);
-            this.BookGenerate.Style = MetroSet_UI.Enums.Style.Light;
-            this.BookGenerate.StyleManager = null;
-            this.BookGenerate.TabIndex = 4;
-            this.BookGenerate.Text = "Generate";
-            this.BookGenerate.ThemeAuthor = "Narwin";
-            this.BookGenerate.ThemeName = "MetroLite";
-            this.BookGenerate.Click += new System.EventHandler(this.BookGenerate_Click);
+            this.bookName.AutoCompleteCustomSource = null;
+            this.bookName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.bookName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.bookName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.bookName.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bookName.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.bookName.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.bookName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.bookName.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.bookName.Image = null;
+            this.bookName.IsDerivedStyle = true;
+            this.bookName.Lines = null;
+            this.bookName.Location = new System.Drawing.Point(3, 38);
+            this.bookName.MaxLength = 32767;
+            this.bookName.Multiline = false;
+            this.bookName.Name = "bookName";
+            this.bookName.ReadOnly = false;
+            this.bookName.Size = new System.Drawing.Size(766, 30);
+            this.bookName.Style = MetroSet_UI.Enums.Style.Light;
+            this.bookName.StyleManager = null;
+            this.bookName.TabIndex = 1;
+            this.bookName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bookName.ThemeAuthor = "Narwin";
+            this.bookName.ThemeName = "MetroLite";
+            this.bookName.UseSystemPasswordChar = false;
+            this.bookName.WatermarkText = "";
             // 
-            // metroSetCheckBox2
+            // metroSetLabel6
             // 
-            this.metroSetCheckBox2.BackColor = System.Drawing.Color.Transparent;
-            this.metroSetCheckBox2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.metroSetCheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.metroSetCheckBox2.Checked = false;
-            this.metroSetCheckBox2.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.metroSetCheckBox2.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.metroSetCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroSetCheckBox2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.metroSetCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.metroSetCheckBox2.IsDerivedStyle = true;
-            this.metroSetCheckBox2.Location = new System.Drawing.Point(576, 140);
-            this.metroSetCheckBox2.Name = "metroSetCheckBox2";
-            this.metroSetCheckBox2.SignStyle = MetroSet_UI.Enums.SignStyle.Sign;
-            this.metroSetCheckBox2.Size = new System.Drawing.Size(98, 16);
-            this.metroSetCheckBox2.Style = MetroSet_UI.Enums.Style.Dark;
-            this.metroSetCheckBox2.StyleManager = null;
-            this.metroSetCheckBox2.TabIndex = 5;
-            this.metroSetCheckBox2.Text = "Save image";
-            this.metroSetCheckBox2.ThemeAuthor = "Narwin";
-            this.metroSetCheckBox2.ThemeName = "MetroDark";
-            this.metroSetCheckBox2.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.metroSetCheckBox2_CheckedChanged);
+            this.metroSetLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroSetLabel6.IsDerivedStyle = true;
+            this.metroSetLabel6.Location = new System.Drawing.Point(3, 12);
+            this.metroSetLabel6.Name = "metroSetLabel6";
+            this.metroSetLabel6.Size = new System.Drawing.Size(239, 23);
+            this.metroSetLabel6.Style = MetroSet_UI.Enums.Style.Dark;
+            this.metroSetLabel6.StyleManager = null;
+            this.metroSetLabel6.TabIndex = 0;
+            this.metroSetLabel6.Text = "Enter your bookmark name here";
+            this.metroSetLabel6.ThemeAuthor = "Narwin";
+            this.metroSetLabel6.ThemeName = "MetroDark";
             // 
-            // bookPicture
+            // labelLink
             // 
-            this.bookPicture.BackColor = System.Drawing.Color.Transparent;
-            this.bookPicture.Location = new System.Drawing.Point(3, 140);
-            this.bookPicture.Name = "bookPicture";
-            this.bookPicture.Size = new System.Drawing.Size(312, 232);
-            this.bookPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bookPicture.TabIndex = 6;
-            this.bookPicture.TabStop = false;
+            this.labelLink.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelLink.IsDerivedStyle = true;
+            this.labelLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.labelLink.Location = new System.Drawing.Point(708, 47);
+            this.labelLink.Name = "labelLink";
+            this.labelLink.Size = new System.Drawing.Size(100, 23);
+            this.labelLink.Style = MetroSet_UI.Enums.Style.Dark;
+            this.labelLink.StyleManager = this.styleManager;
+            this.labelLink.TabIndex = 2;
+            this.labelLink.TabStop = true;
+            this.labelLink.Text = "Download";
+            this.labelLink.ThemeAuthor = "Narwin";
+            this.labelLink.ThemeName = "MetroDark";
+            this.labelLink.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(157)))), ((int)(((byte)(205)))));
+            // 
+            // labelMess
+            // 
+            this.labelMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelMess.IsDerivedStyle = true;
+            this.labelMess.Location = new System.Drawing.Point(505, 47);
+            this.labelMess.Name = "labelMess";
+            this.labelMess.Size = new System.Drawing.Size(197, 23);
+            this.labelMess.Style = MetroSet_UI.Enums.Style.Dark;
+            this.labelMess.StyleManager = this.styleManager;
+            this.labelMess.TabIndex = 3;
+            this.labelMess.ThemeAuthor = "Narwin";
+            this.labelMess.ThemeName = "MetroDark";
             // 
             // MainForm
             // 
@@ -789,6 +822,8 @@ namespace QRCreator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(823, 502);
+            this.Controls.Add(this.labelMess);
+            this.Controls.Add(this.labelLink);
             this.Controls.Add(this.PageControl);
             this.Controls.Add(this.ExitBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -850,5 +885,7 @@ namespace QRCreator
         private MetroSet_UI.Controls.MetroSetLabel metroSetLabel6;
         private MetroSet_UI.Controls.MetroSetCheckBox metroSetCheckBox2;
         private System.Windows.Forms.PictureBox bookPicture;
+        private MetroSet_UI.Controls.MetroSetLabel labelMess;
+        private MetroSet_UI.Controls.MetroSetLink labelLink;
     }
 }

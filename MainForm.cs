@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using static QRCoder.PayloadGenerator;
 using System.Net;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace QRCreator
 {
@@ -19,10 +20,12 @@ namespace QRCreator
         private bool save_image_book = false;
 
         // some versions vars
-        private string local_ver = string.Empty;
+        private string local_ver = "1.1"; // Modified when a new update will be released
         private string online_ver = string.Empty;
         private string file = "version";
         private string online_url = "https://pastebin.com/raw/tLB8hMvT"; // TODO : Configure pastebin...
+        private string download_url = string.Empty;
+
         
 
 
@@ -251,6 +254,7 @@ namespace QRCreator
 
             WifiAuths.SelectedIndex = 0;
 
+            SetLocalVersion(local_ver);
             CompareVersions();
         }
 
@@ -391,19 +395,24 @@ namespace QRCreator
         }
         #endregion
 
+        #region Updater Functions
         private void ReadVersionFromOnline()
         {
             try
             {
                 using (WebClient web = new WebClient())
                 {
-                   online_ver =  web.DownloadString(online_url);
+                   string data =  web.DownloadString(online_url);
+                   UpdateModel um = UpdateModel.FromJson(data);
+
+                   online_ver = um.Version;
+                   download_url =  um.DownloadUrl.AbsoluteUri;
                 }
             }
             catch (Exception e)
             {
 
-                throw;
+                MetroSetMessageBox.Show(this, "Error catched : " + e.Message, "Error");
             }
         }
 
@@ -432,7 +441,7 @@ namespace QRCreator
             catch (Exception e)
             {
 
-                throw;
+                MetroSetMessageBox.Show(this, "Error catched : " + e.Message, "Error");
             }
         }
 
@@ -453,9 +462,9 @@ namespace QRCreator
             }
             catch (Exception e)
             {
-
-                throw;
+                MetroSetMessageBox.Show(this, "Error catched : " + e.Message, "Error");
             }
+            return string.Empty;
         }
         private void CompareVersions()
         {
@@ -464,20 +473,22 @@ namespace QRCreator
 
             if (local_ver == online_ver)
             {
-                MetroSetMessageBox.Show(this, "Update", "No updates found, version is : " + local_ver);
-                SetLocalVersion(online_ver);
+                labelMess.Text = $"Version : {local_ver}";
+                labelLink.Hide();
             }
             else if (local_ver != online_ver)
-            {
-                SetLocalVersion(online_ver);
+            { 
                 // Message to use that is a new version
-
-                MetroSetMessageBox.Show(this, "Update", "A new update has been found : " + online_ver);
-            }
-            else
-            {
-
+                labelMess.Text = "A new update has been found : " + online_ver;
+                labelLink.Show();
+                labelLink.LinkClicked += LabelLink_LinkClicked;
             }
         }
+
+        private void LabelLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(download_url);
+        }
+        #endregion
     }
 }
