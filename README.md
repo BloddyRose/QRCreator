@@ -10,6 +10,7 @@
 
 ## Updates 
 - Now you can bookmark your pages
+- Create a geolocation qr code 
 
 ## Features 
 - 	 Text to QR code,

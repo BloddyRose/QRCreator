@@ -18,9 +18,10 @@ namespace QRCreator
         private bool save_image_wifi = false;
         private bool save_image_url = false;
         private bool save_image_book = false;
+        private bool save_image_geo = false;
 
         // some versions vars
-        private string local_ver = "1.1"; // Modified when a new update will be released
+        private string local_ver = "1.4"; // Modified when a new update will be released
         private string online_ver = string.Empty;
         private string file = "version";
         private string online_url = "https://pastebin.com/raw/tLB8hMvT"; // TODO : Configure pastebin...
@@ -491,11 +492,85 @@ namespace QRCreator
         }
         #endregion
 
+
         private void btnDonate_Click(object sender, EventArgs e)
         {
             string url = "https://www.paypal.com/donate?hosted_button_id=PSNGWDTK6FHME";
 
             System.Diagnostics.Process.Start(url);
+        }
+
+        private void labelLink_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void metroSetLabel8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #region GeoLocation
+        private void GeoGenerate_Click(object sender, EventArgs e)
+        {
+            if (!(string.IsNullOrWhiteSpace(LatBox.Text)) && !(string.IsNullOrWhiteSpace(LongBox.Text)))
+            {
+                GenerateGeoLocationQr(LatBox.Text, LongBox.Text);
+            }
+            else
+            {
+                MetroSetMessageBox.Show(this, "The fields must not be empty!", "Info");
+            }
+        }
+
+        private void GenerateGeoLocationQr(string lat, string longi)
+        {
+            try
+            {
+                Geolocation generator = new Geolocation(lat, longi);
+                string payload = generator.ToString();
+
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                var qrCodeAsBitmap = qrCode.GetGraphic(20);
+
+                if (save_image_geo)
+                {
+                    using (FolderBrowserDialog f = new FolderBrowserDialog())
+                    {
+                        if (f.ShowDialog() == DialogResult.OK)
+                        {
+                            qrCodeAsBitmap.Save(Path.Combine(f.SelectedPath, "qr-code-geolocation.png"));
+                        }
+                    }
+                }
+                GeoPic.Image = qrCodeAsBitmap;
+
+                qrGenerator.Dispose();
+                qrCode.Dispose();
+                qrCodeData.Dispose();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        #endregion
+
+        private void GeoLocSave_CheckedChanged(object sender)
+        {
+            if (GeoLocSave.CheckState == MetroSet_UI.Enums.CheckState.Checked)
+            {
+                save_image_geo = true;
+            }
+            else
+            {
+                save_image_geo = false;
+            }
         }
     }
 }

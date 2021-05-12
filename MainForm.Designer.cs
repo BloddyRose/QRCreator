@@ -66,6 +66,14 @@ namespace QRCreator
             this.labelLink = new MetroSet_UI.Controls.MetroSetLink();
             this.labelMess = new MetroSet_UI.Controls.MetroSetLabel();
             this.btnDonate = new MetroSet_UI.Controls.MetroSetButton();
+            this.GeolocationPage = new MetroSet_UI.Child.MetroSetSetTabPage();
+            this.GeoPic = new System.Windows.Forms.PictureBox();
+            this.GeoLocSave = new MetroSet_UI.Controls.MetroSetCheckBox();
+            this.GeoGenerate = new MetroSet_UI.Controls.MetroSetButton();
+            this.LongBox = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.metroSetLabel8 = new MetroSet_UI.Controls.MetroSetLabel();
+            this.LatBox = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.metroSetLabel9 = new MetroSet_UI.Controls.MetroSetLabel();
             this.PageControl.SuspendLayout();
             this.TextPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxText)).BeginInit();
@@ -75,6 +83,8 @@ namespace QRCreator
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUrl)).BeginInit();
             this.BookmarkPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookPicture)).BeginInit();
+            this.GeolocationPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GeoPic)).BeginInit();
             this.SuspendLayout();
             // 
             // styleManager
@@ -120,12 +130,13 @@ namespace QRCreator
             this.PageControl.Controls.Add(this.WIFIPage);
             this.PageControl.Controls.Add(this.UrlPage);
             this.PageControl.Controls.Add(this.BookmarkPage);
+            this.PageControl.Controls.Add(this.GeolocationPage);
             this.PageControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.PageControl.IsDerivedStyle = true;
             this.PageControl.ItemSize = new System.Drawing.Size(100, 38);
             this.PageControl.Location = new System.Drawing.Point(15, 73);
             this.PageControl.Name = "PageControl";
-            this.PageControl.SelectedIndex = 3;
+            this.PageControl.SelectedIndex = 4;
             this.PageControl.SelectedTextColor = System.Drawing.Color.White;
             this.PageControl.Size = new System.Drawing.Size(809, 426);
             this.PageControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -802,6 +813,7 @@ namespace QRCreator
             this.labelLink.ThemeAuthor = "Narwin";
             this.labelLink.ThemeName = "MetroDark";
             this.labelLink.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(157)))), ((int)(((byte)(205)))));
+            this.labelLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelLink_LinkClicked_1);
             // 
             // labelMess
             // 
@@ -843,6 +855,179 @@ namespace QRCreator
             this.btnDonate.ThemeName = "MetroDark";
             this.btnDonate.Click += new System.EventHandler(this.btnDonate_Click);
             // 
+            // GeolocationPage
+            // 
+            this.GeolocationPage.BaseColor = System.Drawing.Color.White;
+            this.GeolocationPage.Controls.Add(this.GeoPic);
+            this.GeolocationPage.Controls.Add(this.GeoLocSave);
+            this.GeolocationPage.Controls.Add(this.GeoGenerate);
+            this.GeolocationPage.Controls.Add(this.LongBox);
+            this.GeolocationPage.Controls.Add(this.metroSetLabel8);
+            this.GeolocationPage.Controls.Add(this.LatBox);
+            this.GeolocationPage.Controls.Add(this.metroSetLabel9);
+            this.GeolocationPage.Font = null;
+            this.GeolocationPage.ImageIndex = 0;
+            this.GeolocationPage.ImageKey = null;
+            this.GeolocationPage.IsDerivedStyle = true;
+            this.GeolocationPage.Location = new System.Drawing.Point(4, 42);
+            this.GeolocationPage.Name = "GeolocationPage";
+            this.GeolocationPage.Size = new System.Drawing.Size(801, 380);
+            this.GeolocationPage.Style = MetroSet_UI.Enums.Style.Light;
+            this.GeolocationPage.StyleManager = null;
+            this.GeolocationPage.TabIndex = 4;
+            this.GeolocationPage.Text = "Geolocation";
+            this.GeolocationPage.ThemeAuthor = "Narwin";
+            this.GeolocationPage.ThemeName = "MetroLite";
+            this.GeolocationPage.ToolTipText = null;
+            // 
+            // GeoPic
+            // 
+            this.GeoPic.BackColor = System.Drawing.Color.Transparent;
+            this.GeoPic.Location = new System.Drawing.Point(17, 138);
+            this.GeoPic.Name = "GeoPic";
+            this.GeoPic.Size = new System.Drawing.Size(312, 232);
+            this.GeoPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.GeoPic.TabIndex = 13;
+            this.GeoPic.TabStop = false;
+            // 
+            // GeoLocSave
+            // 
+            this.GeoLocSave.BackColor = System.Drawing.Color.Transparent;
+            this.GeoLocSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.GeoLocSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.GeoLocSave.Checked = false;
+            this.GeoLocSave.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.GeoLocSave.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            this.GeoLocSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GeoLocSave.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.GeoLocSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.GeoLocSave.IsDerivedStyle = true;
+            this.GeoLocSave.Location = new System.Drawing.Point(590, 138);
+            this.GeoLocSave.Name = "GeoLocSave";
+            this.GeoLocSave.SignStyle = MetroSet_UI.Enums.SignStyle.Sign;
+            this.GeoLocSave.Size = new System.Drawing.Size(98, 16);
+            this.GeoLocSave.Style = MetroSet_UI.Enums.Style.Dark;
+            this.GeoLocSave.StyleManager = null;
+            this.GeoLocSave.TabIndex = 12;
+            this.GeoLocSave.Text = "Save image";
+            this.GeoLocSave.ThemeAuthor = "Narwin";
+            this.GeoLocSave.ThemeName = "MetroDark";
+            this.GeoLocSave.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.GeoLocSave_CheckedChanged);
+            // 
+            // GeoGenerate
+            // 
+            this.GeoGenerate.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.GeoGenerate.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.GeoGenerate.DisabledForeColor = System.Drawing.Color.Gray;
+            this.GeoGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.GeoGenerate.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.GeoGenerate.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.GeoGenerate.HoverTextColor = System.Drawing.Color.White;
+            this.GeoGenerate.IsDerivedStyle = true;
+            this.GeoGenerate.Location = new System.Drawing.Point(708, 131);
+            this.GeoGenerate.Name = "GeoGenerate";
+            this.GeoGenerate.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.GeoGenerate.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.GeoGenerate.NormalTextColor = System.Drawing.Color.White;
+            this.GeoGenerate.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.GeoGenerate.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.GeoGenerate.PressTextColor = System.Drawing.Color.White;
+            this.GeoGenerate.Size = new System.Drawing.Size(75, 23);
+            this.GeoGenerate.Style = MetroSet_UI.Enums.Style.Light;
+            this.GeoGenerate.StyleManager = null;
+            this.GeoGenerate.TabIndex = 11;
+            this.GeoGenerate.Text = "Generate";
+            this.GeoGenerate.ThemeAuthor = "Narwin";
+            this.GeoGenerate.ThemeName = "MetroLite";
+            this.GeoGenerate.Click += new System.EventHandler(this.GeoGenerate_Click);
+            // 
+            // LongBox
+            // 
+            this.LongBox.AutoCompleteCustomSource = null;
+            this.LongBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.LongBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.LongBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.LongBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.LongBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.LongBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.LongBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LongBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.LongBox.Image = null;
+            this.LongBox.IsDerivedStyle = true;
+            this.LongBox.Lines = null;
+            this.LongBox.Location = new System.Drawing.Point(17, 95);
+            this.LongBox.MaxLength = 32767;
+            this.LongBox.Multiline = false;
+            this.LongBox.Name = "LongBox";
+            this.LongBox.ReadOnly = false;
+            this.LongBox.Size = new System.Drawing.Size(766, 30);
+            this.LongBox.Style = MetroSet_UI.Enums.Style.Light;
+            this.LongBox.StyleManager = null;
+            this.LongBox.TabIndex = 10;
+            this.LongBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.LongBox.ThemeAuthor = "Narwin";
+            this.LongBox.ThemeName = "MetroLite";
+            this.LongBox.UseSystemPasswordChar = false;
+            this.LongBox.WatermarkText = "";
+            // 
+            // metroSetLabel8
+            // 
+            this.metroSetLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroSetLabel8.IsDerivedStyle = true;
+            this.metroSetLabel8.Location = new System.Drawing.Point(17, 69);
+            this.metroSetLabel8.Name = "metroSetLabel8";
+            this.metroSetLabel8.Size = new System.Drawing.Size(239, 23);
+            this.metroSetLabel8.Style = MetroSet_UI.Enums.Style.Dark;
+            this.metroSetLabel8.StyleManager = null;
+            this.metroSetLabel8.TabIndex = 9;
+            this.metroSetLabel8.Text = "Enter longitude here";
+            this.metroSetLabel8.ThemeAuthor = "Narwin";
+            this.metroSetLabel8.ThemeName = "MetroDark";
+            this.metroSetLabel8.Click += new System.EventHandler(this.metroSetLabel8_Click);
+            // 
+            // LatBox
+            // 
+            this.LatBox.AutoCompleteCustomSource = null;
+            this.LatBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.LatBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.LatBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.LatBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.LatBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.LatBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.LatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LatBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.LatBox.Image = null;
+            this.LatBox.IsDerivedStyle = true;
+            this.LatBox.Lines = null;
+            this.LatBox.Location = new System.Drawing.Point(17, 36);
+            this.LatBox.MaxLength = 32767;
+            this.LatBox.Multiline = false;
+            this.LatBox.Name = "LatBox";
+            this.LatBox.ReadOnly = false;
+            this.LatBox.Size = new System.Drawing.Size(766, 30);
+            this.LatBox.Style = MetroSet_UI.Enums.Style.Light;
+            this.LatBox.StyleManager = null;
+            this.LatBox.TabIndex = 8;
+            this.LatBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.LatBox.ThemeAuthor = "Narwin";
+            this.LatBox.ThemeName = "MetroLite";
+            this.LatBox.UseSystemPasswordChar = false;
+            this.LatBox.WatermarkText = "";
+            // 
+            // metroSetLabel9
+            // 
+            this.metroSetLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroSetLabel9.IsDerivedStyle = true;
+            this.metroSetLabel9.Location = new System.Drawing.Point(17, 10);
+            this.metroSetLabel9.Name = "metroSetLabel9";
+            this.metroSetLabel9.Size = new System.Drawing.Size(138, 23);
+            this.metroSetLabel9.Style = MetroSet_UI.Enums.Style.Dark;
+            this.metroSetLabel9.StyleManager = null;
+            this.metroSetLabel9.TabIndex = 7;
+            this.metroSetLabel9.Text = "Enter latitude here";
+            this.metroSetLabel9.ThemeAuthor = "Narwin";
+            this.metroSetLabel9.ThemeName = "MetroDark";
+            // 
             // MainForm
             // 
             this.AllowResize = false;
@@ -875,6 +1060,8 @@ namespace QRCreator
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUrl)).EndInit();
             this.BookmarkPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bookPicture)).EndInit();
+            this.GeolocationPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GeoPic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -917,5 +1104,13 @@ namespace QRCreator
         private MetroSet_UI.Controls.MetroSetLabel labelMess;
         private MetroSet_UI.Controls.MetroSetLink labelLink;
         private MetroSet_UI.Controls.MetroSetButton btnDonate;
+        private MetroSet_UI.Child.MetroSetSetTabPage GeolocationPage;
+        private System.Windows.Forms.PictureBox GeoPic;
+        private MetroSet_UI.Controls.MetroSetCheckBox GeoLocSave;
+        private MetroSet_UI.Controls.MetroSetButton GeoGenerate;
+        private MetroSet_UI.Controls.MetroSetTextBox LongBox;
+        private MetroSet_UI.Controls.MetroSetLabel metroSetLabel8;
+        private MetroSet_UI.Controls.MetroSetTextBox LatBox;
+        private MetroSet_UI.Controls.MetroSetLabel metroSetLabel9;
     }
 }
